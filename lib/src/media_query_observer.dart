@@ -13,9 +13,7 @@ class MediaQueryObserver extends StatefulWidget {
   _MediaQueryObserverState createState() => _MediaQueryObserverState();
 }
 
-class _MediaQueryObserverState extends State<MediaQueryObserver>
-    with WidgetsBindingObserver {
-
+class _MediaQueryObserverState extends State<MediaQueryObserver> with WidgetsBindingObserver {
   T? _ambiguate<T>(T? value) => value;
 
   @override
@@ -39,7 +37,7 @@ class _MediaQueryObserverState extends State<MediaQueryObserver>
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
-      data: MediaQueryData.fromWindow(_ambiguate(WidgetsBinding.instance)!.window),
+      data: MediaQueryData.fromView(_ambiguate(WidgetsBinding.instance)!.window),
       child: widget.child,
     );
   }

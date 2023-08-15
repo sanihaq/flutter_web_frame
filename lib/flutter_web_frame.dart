@@ -58,10 +58,7 @@ class FlutterWebFrame extends StatefulWidget {
   static MediaQueryData _mediaQuery(BuildContext context) {
     return FrameContent.mediaQuery(
       context,
-      context
-              .findAncestorStateOfType<_FlutterWebFrameState>()
-              ?.widget
-              .maximumSize ??
+      context.findAncestorStateOfType<_FlutterWebFrameState>()?.widget.maximumSize ??
           Size(375.0, 812.0),
     );
   }
@@ -100,12 +97,8 @@ class _FlutterWebFrameState extends State<FlutterWebFrame> {
                   top: 0,
                   bottom: 0,
                   child: widget.enabled
-                      ? Builder(
-                          builder: _buildPreview,
-                        )
-                      : Builder(
-                          builder: widget.builder,
-                        ),
+                      ? Builder(builder: _buildPreview)
+                      : Builder(builder: widget.builder),
                 ),
               ],
             ),
